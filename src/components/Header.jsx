@@ -30,15 +30,11 @@ const Header = () => {
           <li className="nav-item">
             <Link className="nav-link" to="/chart">Chart</Link>
           </li>
-          {token ? (
+          
             <li className="nav-item">
               <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
             </li>
-          ) : (
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">Login</Link>
-            </li>
-          )}
+          
         </ul>
       </div>
     </nav>
