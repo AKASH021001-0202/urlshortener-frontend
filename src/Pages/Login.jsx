@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/slices/userSlice";
 import { userLogindata } from "../apis/auth";
-import { Navigate, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isAuthenticated = Boolean(localStorage.getItem("isAuthenticated"));
+
+  useEffect(() => {
+    const isAuthenticated = Boolean(localStorage.getItem("isAuthenticated"));
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [navigate]);
+
   const notify = () => toast.success("Login successful");
 
   const initialValues = {
@@ -51,11 +58,6 @@ const Login = () => {
       setSubmitting(false);
     }
   };
-  
-
-  if (isAuthenticated) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <div className="container">
@@ -72,7 +74,7 @@ const Login = () => {
           />
           <div className="col-lg-8 d-flex align-items-center">
             <div className="form-align p-4">
-              <h3 className="display-5">Welcome to WeddingWise!</h3>
+              <h3 className="display-5">Welcome to Url Shortner!</h3>
               <hr className="my-4" />
               <p>Get started by creating an account or logging in if you already have one.</p>
               <Formik

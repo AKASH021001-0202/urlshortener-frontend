@@ -51,11 +51,19 @@ const Register = () => {
     <section className="bg-register text-dark register-height">
       <ToastContainer />
       <div className="container">
-        <div className="card-box">
+        <div className="card-box mt-5">
           <div className="row">
+          <div
+            className="col-lg-4 loginregisterimg"
+            style={{
+              backgroundImage: 'url("https://i.ibb.co/tLKzDL1/up1.jpg")',
+              backgroundSize: "contain",
+              height: "550px"
+            }}
+          />
             <div className="col-lg-8">
               <div className="form-align">
-                <h3 className="display-5">Welcome to WeddingWise!</h3>
+                <h3 className="display-5">Welcome to url Shorner!</h3>
                 <hr className="my-4" />
                 <p>
                   Get started by creating an account or{" "}
